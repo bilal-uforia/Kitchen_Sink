@@ -5,8 +5,9 @@ import {
     addImagePug, addImageGoogle, addImagePrintio, addBunnyVideo,
     addGradient1, addGradient2, addGradient3, addGradient4,
     addArc1, addArc2, addArc3, addArc4, addArc5,
-     add36PathsShape
+    add36PathsShape, addSVGShape
 } from "../../utils/addShapes";
+import { svgShapesData } from "../../utils/data/svgShapesData";
 
 
 const SimpleContent = () => {
@@ -75,6 +76,11 @@ const SimpleContent = () => {
                     <Button onClickHandler={() => addArc3(canvas, canvasRef)}>Arc(s) 3</Button>
                     <Button onClickHandler={() => addArc4(canvas, canvasRef)}>Arc(s) 4</Button>
                     <Button onClickHandler={() => addArc5(canvas, canvasRef)}>Transformed Paths</Button>
+                    {
+                        svgShapesData.map(({ title, url, width, height, objectOptions }) => {
+                            return <Button onClickHandler={() => addSVGShape(canvas, canvasRef, url, width, height, objectOptions)}>{title}</Button>
+                        })
+                    }
                 </div>
             </div>
 

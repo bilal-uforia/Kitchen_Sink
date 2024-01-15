@@ -548,8 +548,8 @@ export const add36PathsShape = (canvas, canvasRef) => {
             left: 50,
         });
 
-        arrowSvg.scaleToWidth(10);
-        arrowSvg.scaleToHeight(10);
+        arrowSvg.scaleToWidth(100);
+        arrowSvg.scaleToHeight(100);
 
 
         canvas.current.add(arrowSvg);
@@ -558,6 +558,25 @@ export const add36PathsShape = (canvas, canvasRef) => {
 }
 
 
-export const addSVGShape = (canvas, canvasRef) => {
+export const addSVGShape = (canvas, canvasRef, url = "", objectOptions = {}, width = 100, height = 100) => {
+    console.log(url, objectOptions, width, height);
 
+    const { left, top } = getRandomPoints(canvasRef.current, width || 100, height || 100)
+
+    fabric.loadSVGFromURL(url, (objects, options) => {
+        const arrowSvg = fabric.util.groupSVGElements(objects, options);
+        arrowSvg.set({
+            top: 200,
+            left: 200,
+            ...objectOptions
+        });
+
+        arrowSvg.scaleToWidth(width || 100);
+        arrowSvg.scaleToHeight(height || 100);
+
+
+        canvas.current.add(arrowSvg);
+    });
+
+    console.log("inside addSVG shape");
 }
