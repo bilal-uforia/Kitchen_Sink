@@ -22,7 +22,7 @@ export const getContentHeight = (element) => {
 }
 
 //Getting random points according to element 
-export const getRandomPoints = (element, xConstraint, yConstraint, minLeft = 0, minTop = 0) => {
+export const getRandomPoints = (element, xConstraint = 0, yConstraint = 0, minLeft = 0, minTop = 0) => {
     const left = Math.max(Math.random() * getContentWidth(element) - xConstraint, minLeft);
     const top = Math.max(Math.random() * getContentHeight(element) - yConstraint, minTop);
 
