@@ -1,4 +1,4 @@
-import { createContext, useRef, useContext } from "react"
+import { createContext, useRef, useContext, useState } from "react"
 
 // Creating canvas context
 const CanvasContext = createContext({});
@@ -6,9 +6,11 @@ const CanvasContext = createContext({});
 const CanvasContextProvider = ({ children }) => {
     const canvasRef = useRef(null);
     const canvas = useRef(null);
+    const [activeObject, setActiveObject] = useState(null);
+
 
     return (
-        <CanvasContext.Provider value={{ canvasRef, canvas }}>
+        <CanvasContext.Provider value={{ canvasRef, canvas, activeObject, setActiveObject }}>
             {children}
         </CanvasContext.Provider>
     )

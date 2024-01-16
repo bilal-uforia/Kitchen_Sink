@@ -5,14 +5,14 @@ import {
     addImagePug, addImageGoogle, addImagePrintio, addBunnyVideo,
     addGradient1, addGradient2, addGradient3, addGradient4,
     addArc1, addArc2, addArc3, addArc4, addArc5,
-    add36PathsShape, addSVGShape
+    addSVGShape
 } from "../../utils/addShapes";
+import { sanitizedData } from "../../utils/helpers";
 import { svgShapesData } from "../../utils/data/svgShapesData";
 
 
 const SimpleContent = () => {
     const { canvas, canvasRef } = useCanvasContext();
-    console.log(canvasRef.current.getBoundingClientRect());
 
     return (
         <div className="flex flex-col gap-3">
@@ -71,14 +71,10 @@ const SimpleContent = () => {
             <div>
                 <p className='text-md mb-[10px] text-[#333333]'>Add <b>SVG shapes</b> to canvas:</p>
                 <div className="flex gap-4 flex-wrap">
-                    <Button onClickHandler={() => add36PathsShape(canvas, canvasRef)}><b>36 </b> paths</Button>
-                    <Button onClickHandler={() => addArc2(canvas, canvasRef)}>Arc(s) 2</Button>
-                    <Button onClickHandler={() => addArc3(canvas, canvasRef)}>Arc(s) 3</Button>
-                    <Button onClickHandler={() => addArc4(canvas, canvasRef)}>Arc(s) 4</Button>
-                    <Button onClickHandler={() => addArc5(canvas, canvasRef)}>Transformed Paths</Button>
                     {
-                        svgShapesData.map(({ title, url, width, height, objectOptions }) => {
-                            return <Button onClickHandler={() => addSVGShape(canvas, canvasRef, url, width, height, objectOptions)}>{title}</Button>
+                        svgShapesData.map(({ title, url, width, height, objectOptions, scaleToWidthHeight }, index) => {
+                            return <Button key={index} onClickHandler={() => addSVGShape(canvas, canvasRef, url, objectOptions, width, height, scaleToWidthHeight)}
+                                attributes={{ dangerouslySetInnerHTML: sanitizedData(title) }} />
                         })
                     }
                 </div>

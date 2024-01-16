@@ -1,3 +1,6 @@
+import DOMPurify from 'dompurify'
+
+
 //Random color generator
 export const generateRandomColor = () => {
     return Math.floor(Math.random() * 16777215).toString(16);
@@ -28,3 +31,8 @@ export const getRandomPoints = (element, xConstraint = 0, yConstraint = 0, minLe
 
     return { left, top };
 }
+
+
+export const sanitizedData = (data) => ({
+    __html: DOMPurify.sanitize(data)
+})

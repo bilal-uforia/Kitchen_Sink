@@ -538,44 +538,25 @@ export const addArc5 = (canvas, canvasRef) => {
 
 // Svg Shapes
 
-// 36 path arrow svg
-export const add36PathsShape = (canvas, canvasRef) => {
+//Function for adding any svg shape
+export const addSVGShape = (canvas, canvasRef, url = "", objectOptions = {}, width = 100, height = 100, scaleToWidthHeight = true) => {
 
-    fabric.loadSVGFromURL("http://fabricjs.com/assets/25.svg", (objects, options) => {
-        const arrowSvg = fabric.util.groupSVGElements(objects, options);
-        arrowSvg.set({
-            top: 50,
-            left: 50,
-        });
-
-        arrowSvg.scaleToWidth(100);
-        arrowSvg.scaleToHeight(100);
-
-
-        canvas.current.add(arrowSvg);
-    })
-
-}
-
-
-export const addSVGShape = (canvas, canvasRef, url = "", objectOptions = {}, width = 100, height = 100) => {
-    console.log(url, objectOptions, width, height);
-
-    const { left, top } = getRandomPoints(canvasRef.current, width || 100, height || 100)
+    const { left, top } = getRandomPoints(canvasRef.current, width, height)
 
     fabric.loadSVGFromURL(url, (objects, options) => {
-        const arrowSvg = fabric.util.groupSVGElements(objects, options);
-        arrowSvg.set({
-            top: 200,
-            left: 200,
+        const svgObject = fabric.util.groupSVGElements(objects, options);
+        svgObject.set({
+            top,
+            left,
             ...objectOptions
         });
 
-        arrowSvg.scaleToWidth(width || 100);
-        arrowSvg.scaleToHeight(height || 100);
+        if (scaleToWidthHeight) {
+            svgObject.scaleToWidth(width);
+            svgObject.scaleToHeight(height);
+        }
 
-
-        canvas.current.add(arrowSvg);
+        canvas.current.add(svgObject);
     });
 
     console.log("inside addSVG shape");

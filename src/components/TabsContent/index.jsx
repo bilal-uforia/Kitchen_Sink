@@ -1,4 +1,5 @@
 import SimpleContent from "./SimpleContent";
+import ObjectContent from "./ObjectContent";
 
 const TabsContent = ({ currentTab }) => {
     let tabContent = <h2>
@@ -10,7 +11,7 @@ const TabsContent = ({ currentTab }) => {
             tabContent = <SimpleContent />;
             break;
         case 1:
-            tabContent = <h2>Object Content</h2>;
+            tabContent = <ObjectContent />;
             break;
         case 2:
             tabContent = <h2>Canvas Content</h2>;
