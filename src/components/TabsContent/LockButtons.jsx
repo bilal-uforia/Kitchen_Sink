@@ -26,9 +26,12 @@ const LockButton = ({ children, property }) => {
 const LockButtons = () => {
 
     return <div className="flex flex-wrap gap-2">
-        <LockButton property="lockMovementX"> horizontal movement</LockButton>
-        <LockButton property="lockMovementY"> vertical  movement</LockButton>
-        <LockButton property="lockMovementY"> vertical  movement</LockButton>
+        <LockButton property="lockMovementX">horizontal movement</LockButton>
+        <LockButton property="lockMovementY">vertical movement</LockButton>
+        <LockButton property="lockScalingX">hotizontal scaling</LockButton>
+        <LockButton property="lockScalingY">vertical scaling</LockButton>
+        <LockButton property="lockRotation">rotation</LockButton>
+        <LockButton property="lockScalingFlip">scaling flip</LockButton>
     </div>
 }
 

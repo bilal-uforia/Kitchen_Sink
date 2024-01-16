@@ -7,6 +7,14 @@ const Label = ({ children, className }) => {
 }
 
 
+const OriginInput = ({ labelText, name, value, onChangeHandler }) => {
+    return <div>
+        <Label>{labelText}</Label>
+        <input type="radio" name={name} value={value} onChange={onChangeHandler}></input>
+    </div>
+}
+
+
 const ObjectContent = () => {
     const { canvas, canvasRef } = useCanvasContext();
     const activeObject = canvas.current.getActiveObject();
@@ -79,7 +87,22 @@ const ObjectContent = () => {
             </div>
 
             {/* Lock Buttons */}
-                <LockButtons />
+            <LockButtons />
+
+            {/* Origin X  */}
+            <div className="flex ">
+                <Label>Origin X:</Label>
+                <OriginInput labelText="Left" name="originX" value="left" />
+                <OriginInput labelText="Center" name="originX" value="center" />
+                <OriginInput labelText="Right" name="originX" value="right" />
+                <OriginInput labelText="0.3" name="originX" value={0.3} />
+                <OriginInput labelText="0.5" name="originX" value={0.5} />
+                <OriginInput labelText="0.7" name="originX" value={0.7} />
+                <OriginInput labelText="1" name="originX" value={1} />
+            </div>
+
+
+
         </div>
     )
 }
