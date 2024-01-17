@@ -7,7 +7,7 @@ const OriginInput = ({ labelText, name, value, onChangeHandler }) => {
 
     const defaultChecked = Boolean(activeObject?.get(name) == value);
 
-    return <div className="flex items-center">
+    return <div className="flex gap-1 items-center">
         <Label>{labelText}</Label>
         <input disabled={!activeObject} type="radio" defaultChecked={defaultChecked} name={name} 
         value={value} 
