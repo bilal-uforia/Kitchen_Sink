@@ -2,6 +2,7 @@ import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 import { updateFill, updateStroke, updateBackground } from "../../utils/updateShapes"
 import LockButtons from "./LockButtons"
 import OriginInputs from "./OriginInputs"
+import ObjectCheckboxInputs from "./ObjectCheckboxInputs"
 
 export const Label = ({ children, className }) => {
     return <label className={`text-md leading-[20px] text-[#333333] ${className}`}>{children}</label>
@@ -82,6 +83,7 @@ const ObjectContent = () => {
             {/* Origin X  */}
             <OriginInputs />
 
+            <ObjectCheckboxInputs />
         </div>
     )
 }

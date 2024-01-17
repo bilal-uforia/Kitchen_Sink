@@ -9,7 +9,9 @@ const OriginInput = ({ labelText, name, value, onChangeHandler }) => {
 
     return <div className="flex items-center">
         <Label>{labelText}</Label>
-        <input disabled={!activeObject} type="radio" defaultChecked={defaultChecked} name={name} value={value} onChange={onChangeHandler}></input>
+        <input disabled={!activeObject} type="radio" defaultChecked={defaultChecked} name={name} 
+        value={value} 
+        onChange={onChangeHandler}></input>
     </div>
 }
 
@@ -35,6 +37,8 @@ const OriginInputs = () => {
 
         activeObject.set(e?.target?.name, value);
         canvas.current.renderAll();
+        console.log(value);
+        console.log(activeObject);
     }
 
 

@@ -54,18 +54,24 @@ export const svgShapesData = [
     {
         title: "<b>133</b> paths",
         url: "http://fabricjs.com/assets/47.svg",
-        objectOptions: {}, 
+        objectOptions: {},
         scaleToWidthHeight: false
     },
     {
         title: "<b>141</b> paths",
         url: "http://fabricjs.com/assets/51.svg",
-        objectOptions: {}, 
+        objectOptions: {},
     },
     {
         title: "<b>244</b> paths",
         url: "http://fabricjs.com/assets/141.svg",
-        objectOptions: {}, 
+        objectOptions: {},
+        scaleToWidthHeight: false
+    },
+    {
+        title: "Yellow car",
+        url: "http://fabricjs.com/assets/171.svg",
+        objectOptions: {},
         scaleToWidthHeight: false
     },
 ]
