@@ -70,7 +70,7 @@ export const svgShapesData = [
     },
     {
         title: "Yellow car",
-        url: "http://fabricjs.com/assets/171.svg/",
+        url: "http://fabricjs.com/assets/171.svg",
         objectOptions: {},
         scaleToWidthHeight: false
     },
