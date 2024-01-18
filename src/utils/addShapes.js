@@ -1,6 +1,6 @@
 import { fabric } from "fabric";
-import { generateRandomColor, getRandomPoints } from "./helpers";
-
+import { getRandomPoints } from "./helpers";
+import randomColor from "randomcolor";
 
 // Simple  Shapes
 export const addRectangle = (canvas, canvasRef) => {
@@ -10,7 +10,7 @@ export const addRectangle = (canvas, canvasRef) => {
     const rect = new fabric.Rect({
         top,
         left,
-        fill: "#" + generateRandomColor(),
+        fill: randomColor(),
         width: 100,
         height: 100
     });
@@ -23,7 +23,7 @@ export const addCircle = (canvas, canvasRef) => {
     const circle = new fabric.Circle({
         top,
         left,
-        fill: "#" + generateRandomColor(),
+        fill: randomColor(),
         radius: 50
     });
     canvas.current.add(circle);
@@ -35,7 +35,7 @@ export const addTriangle = (canvas, canvasRef) => {
     const triangle = new fabric.Triangle({
         top,
         left,
-        fill: "#" + generateRandomColor(),
+        fill: randomColor(),
         width: 100,
         height: 100
     });
@@ -48,7 +48,7 @@ export const addLine = (canvas, canvasRef) => {
     const { left, top } = getRandomPoints(canvasRef.current, 100, 100);
 
     const line = new fabric.Line([left, top, left + 100, top + 100], {
-        stroke: "#" + generateRandomColor()
+        stroke: randomColor()
     });
 
     canvas.current.add(line);
@@ -63,7 +63,7 @@ export const addPolygon = (canvas, canvasRef) => {
         { x: left - 50, y: top + 130 },
         { x: left - 50, y: top + 50 }],
         {
-            fill: "#" + generateRandomColor()
+            fill: randomColor()
         });
 
     canvas.current.add(polygon);
@@ -76,7 +76,7 @@ export const addText = (canvas, canvasRef) => {
         top,
         fontSize: 14,
         editable: true,
-        stroke: "#" + generateRandomColor()
+        stroke: randomColor()
     });
     canvas.current.add(text)
 }
@@ -88,7 +88,7 @@ export const addIText = (canvas, canvasRef) => {
         top,
         fontSize: 14,
         editable: true,
-        stroke: "#" + generateRandomColor()
+        stroke: randomColor()
     });
     canvas.current.add(text)
 }

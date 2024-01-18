@@ -11,7 +11,8 @@ const CanvasRenderer = () => {
         new fabric.Canvas(canvasRef.current, {
             selectionColor: 'blue',
             width: 800,
-            height: 600
+            height: 600,
+            preserveObjectStacking:true
         })
     );
 
@@ -20,6 +21,7 @@ const CanvasRenderer = () => {
         console.log(canvasRef.current);
         console.log(canvas.current);
         canvas.current = initCanvas();
+        window.canvas = canvas.current;
         console.log(canvas.current);
 
         return () => {

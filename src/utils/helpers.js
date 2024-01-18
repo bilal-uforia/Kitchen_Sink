@@ -1,10 +1,6 @@
 import DOMPurify from 'dompurify'
+import randomColor from 'randomcolor'
 
-
-//Random color generator
-export const generateRandomColor = () => {
-    return Math.floor(Math.random() * 16777215).toString(16);
-}
 
 //Getting element width 
 export const getContentWidth = (element) => {
