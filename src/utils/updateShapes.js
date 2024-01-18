@@ -168,3 +168,22 @@ export const changePattern = (canvas, activeObject, value) => {
         console.log(activeObject);
     }
 }
+
+export const addResizeFilter = (canvas, activeObject) => {
+    if (activeObject instanceof fabric.Image) {
+        const resizeFilter = new fabric.Image.filters.Resize();
+        activeObject.filters.push(resizeFilter);
+        activeObject.applyFilters();
+        canvas.current.renderAll();
+    }
+}
+
+
+export const addInvertFilter = (canvas, activeObject) => {
+    if (activeObject instanceof fabric.Image) {
+        const resizeFilter = new fabric.Image.filters.Invert();
+        activeObject.filters.push(resizeFilter);
+        activeObject.applyFilters();
+        canvas.current.renderAll();
+    }
+}

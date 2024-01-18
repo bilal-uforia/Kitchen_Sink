@@ -2,7 +2,7 @@ import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 import Button from "../Button"
 import {
     sendBackwards, sendToBack, bringForwards, bringToFront, fillGradient, addShadow,
-    fillPattern, addClip, invertClip, playVideo, changePattern
+    fillPattern, addClip, invertClip, playVideo, changePattern, addResizeFilter, addInvertFilter
 } from "../../utils/updateShapes"
 
 
@@ -51,6 +51,12 @@ const ObjectActions = () => {
                 </Button>
                 <Button onClickHandler={() => changePattern(canvas, activeObject, "no-repeat")} attributes={{ disabled: !activeObject }}>
                     Pattern repeat-none
+                </Button>
+                <Button onClickHandler={() => addResizeFilter(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    Add Resize filter
+                </Button>
+                <Button onClickHandler={() => addInvertFilter(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    set Invert filter
                 </Button>
             </div>
 
