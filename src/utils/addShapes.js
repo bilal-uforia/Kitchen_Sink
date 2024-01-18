@@ -220,7 +220,7 @@ export const addBunnyVideo = (canvas, canvasRef) => {
         objectCaching: false,
     });
 
-    videoObject.getElement().play();
+    // videoObject.getElement().play();
 
     canvas.current.add(videoObject);
     fabric.util.requestAnimFrame(function render() {

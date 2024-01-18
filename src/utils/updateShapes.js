@@ -1,5 +1,6 @@
 import { fabric } from "fabric";
 import randomColor from "randomcolor";
+import { ladybug } from "../assets/images";
 
 // export const updateFill = (e, canvas, canvasRef) => {
 //     const activeObject = canvas.current.getActiveObject()
@@ -84,4 +85,67 @@ export const addShadow = (canvas, activeObject) => {
     }
     console.log(activeObject)
     canvas.current.renderAll();
+}
+
+export const fillPattern = (canvas, activeObject) => {
+    if (activeObject?.fill instanceof fabric.Pattern) {
+        activeObject?.set({ fill: null })
+        canvas.current.renderAll();
+    }
+    else {
+        fabric.util.loadImage(ladybug, function (img) {
+            console.log(img);
+            activeObject?.set("fill", new fabric.Pattern({
+                source: img,
+                repeat: 'no-repeat',
+            }));
+            canvas.current.renderAll();
+        });
+    }
+}
+
+export const addClip = (canvas, activeObject) => {
+    if (activeObject?.clipPath) {
+        activeObject.set({ clipPath: null })
+    }
+    else {
+        const clipCircle = new fabric.Circle({
+            radius: activeObject?.width / 2,
+            top: -50,
+            left: -50
+        });
+
+        activeObject.set({ clipPath: clipCircle })
+    }
+
+    canvas.current.renderAll();
+}
+
+export const invertClip = (canvas, activeObject) => {
+    if (activeObject?.clipPath?.inverted) {
+        activeObject.set({ clipPath: null })
+    }
+    else {
+        const clipCircle = new fabric.Circle({
+            radius: activeObject?.width / 2,
+            top: -50,
+            left: -50,
+            inverted: true
+        });
+
+        activeObject.set({ clipPath: clipCircle })
+    }
+
+    canvas.current.renderAll();
+}
+
+export const playVideo = (canvas, activeObject) => {
+    console.log(activeObject?.getElement());
+    activeObject?.getElement().play()
+    canvas.current.renderAll();
+
+    fabric.util.requestAnimFrame(function render() {
+        canvas.current.renderAll();
+        fabric.util.requestAnimFrame(render);
+    });
 }

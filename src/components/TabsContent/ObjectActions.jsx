@@ -1,6 +1,9 @@
 import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 import Button from "../Button"
-import { sendBackwards, sendToBack, bringForwards, bringToFront, fillGradient, addShadow } from "../../utils/updateShapes"
+import {
+    sendBackwards, sendToBack, bringForwards, bringToFront, fillGradient, addShadow,
+    fillPattern, addClip, invertClip, playVideo
+} from "../../utils/updateShapes"
 
 
 const ObjectActions = () => {
@@ -25,6 +28,19 @@ const ObjectActions = () => {
                 <Button onClickHandler={() => addShadow(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
                     Shadowify
                 </Button>
+                <Button onClickHandler={() => fillPattern(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    Patternify
+                </Button>
+                <Button onClickHandler={() => addClip(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    Clip
+                </Button>
+                <Button onClickHandler={() => invertClip(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    Inverted clip
+                </Button>
+                <Button onClickHandler={() => playVideo(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    Play
+                </Button>
+
             </div>
 
 
