@@ -2,7 +2,7 @@ import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 import Button from "../Button"
 import {
     sendBackwards, sendToBack, bringForwards, bringToFront, fillGradient, addShadow,
-    fillPattern, addClip, invertClip, playVideo
+    fillPattern, addClip, invertClip, playVideo, changePattern
 } from "../../utils/updateShapes"
 
 
@@ -21,7 +21,7 @@ const ObjectActions = () => {
                 <Button onClickHandler={() => bringToFront(canvas, activeObject)} attributes={{ disabled: !activeObject }}>Send to front</Button>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
                 <Button onClickHandler={() => fillGradient(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
                     Gradientify
                 </Button>
@@ -40,7 +40,18 @@ const ObjectActions = () => {
                 <Button onClickHandler={() => playVideo(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
                     Play
                 </Button>
-
+                <Button onClickHandler={() => changePattern(canvas, activeObject, "repeat")} attributes={{ disabled: !activeObject }}>
+                    Pattern repeat
+                </Button>
+                <Button onClickHandler={() => changePattern(canvas, activeObject, "repeat-x")} attributes={{ disabled: !activeObject }}>
+                    Pattern repeat-x
+                </Button>
+                <Button onClickHandler={() => changePattern(canvas, activeObject, "repeat-y")} attributes={{ disabled: !activeObject }}>
+                    Pattern repeat-y
+                </Button>
+                <Button onClickHandler={() => changePattern(canvas, activeObject, "no-repeat")} attributes={{ disabled: !activeObject }}>
+                    Pattern repeat-none
+                </Button>
             </div>
 
 

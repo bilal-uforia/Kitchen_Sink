@@ -70,7 +70,7 @@ export const fillGradient = (canvas, activeObject) => {
 }
 
 export const addShadow = (canvas, activeObject) => {
-    if (activeObject?.shadow) {
+    if (activeObject.shadow) {
         activeObject.set({ shadow: null });
     }
     else {
@@ -88,29 +88,32 @@ export const addShadow = (canvas, activeObject) => {
 }
 
 export const fillPattern = (canvas, activeObject) => {
-    if (activeObject?.fill instanceof fabric.Pattern) {
-        activeObject?.set({ fill: null })
+    if (activeObject.fill instanceof fabric.Pattern) {
+        activeObject.set({ fill: null })
         canvas.current.renderAll();
     }
     else {
         fabric.util.loadImage(ladybug, function (img) {
             console.log(img);
-            activeObject?.set("fill", new fabric.Pattern({
+            const pattern = new fabric.Pattern({
                 source: img,
-                repeat: 'no-repeat',
-            }));
+                repeat: 'repeat',
+            });
+
+            activeObject.set("fill", pattern);
+
             canvas.current.renderAll();
         });
     }
 }
 
 export const addClip = (canvas, activeObject) => {
-    if (activeObject?.clipPath) {
+    if (activeObject.clipPath) {
         activeObject.set({ clipPath: null })
     }
     else {
         const clipCircle = new fabric.Circle({
-            radius: activeObject?.width / 2,
+            radius: activeObject.width / 2,
             top: -50,
             left: -50
         });
@@ -122,12 +125,12 @@ export const addClip = (canvas, activeObject) => {
 }
 
 export const invertClip = (canvas, activeObject) => {
-    if (activeObject?.clipPath?.inverted) {
+    if (activeObject.clipPath?.inverted) {
         activeObject.set({ clipPath: null })
     }
     else {
         const clipCircle = new fabric.Circle({
-            radius: activeObject?.width / 2,
+            radius: activeObject.width / 2,
             top: -50,
             left: -50,
             inverted: true
@@ -140,12 +143,28 @@ export const invertClip = (canvas, activeObject) => {
 }
 
 export const playVideo = (canvas, activeObject) => {
-    console.log(activeObject?.getElement());
-    activeObject?.getElement().play()
+    console.log(activeObject.getElement());
+    activeObject.getElement().play()
     canvas.current.renderAll();
 
     fabric.util.requestAnimFrame(function render() {
         canvas.current.renderAll();
         fabric.util.requestAnimFrame(render);
     });
+}
+
+export const changePattern = (canvas, activeObject, value) => {
+    if (activeObject.fill instanceof fabric.Pattern) {
+        fabric.util.loadImage(ladybug, function (img) {
+            console.log(img);
+            activeObject.set("fill", new fabric.Pattern({
+                source: img,
+                repeat: value,
+            }));
+            canvas.current.renderAll();
+        });
+
+        // canvas.current.renderAll();
+        console.log(activeObject);
+    }
 }
