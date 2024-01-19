@@ -1,7 +1,7 @@
 import { fabric } from "fabric";
 import { getRandomPoints } from "./helpers";
 import randomColor from "randomcolor";
-import { ladybug } from "../assets/images";
+import { ladybug, pug } from "../assets/images";
 
 // Simple  Shapes
 export const addRectangle = (canvas, canvasRef) => {
@@ -127,7 +127,7 @@ export const addImagePug = (canvas, canvasRef) => {
 
     const { left, top } = getRandomPoints(canvasRef.current, random_width, random_height);
 
-    fabric.Image.fromURL("http://fabricjs.com/assets/pug.jpg", (img_obj) => {
+    fabric.Image.fromURL(pug, (img_obj) => {
         img_obj.set({
             left,
             top,
