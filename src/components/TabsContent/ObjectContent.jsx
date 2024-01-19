@@ -3,6 +3,7 @@ import LockButtons from "./LockButtons"
 import OriginInputs from "./OriginInputs"
 import ObjectCheckboxInputs from "./ObjectCheckboxInputs"
 import ObjectActions from "./ObjectActions"
+import TextActions from "./TextActions"
 
 export const Label = ({ children, className }) => {
     return <label className={`text-md leading-[20px] text-[#333333] ${className}`}>{children}</label>
@@ -86,9 +87,14 @@ const ObjectContent = () => {
             {/* Checkbox actions */}
             <ObjectCheckboxInputs />
 
+            {
+                (activeObject?.type == 'i-text' || activeObject?.type == 'text') && <TextActions />
+            }
+
             {/* Object button actions */}
             <ObjectActions />
-            
+
+
         </div>
     )
 }
