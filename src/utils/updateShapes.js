@@ -143,8 +143,8 @@ export const invertClip = (canvas, activeObject) => {
 }
 
 export const playVideo = (canvas, activeObject) => {
-    console.log(activeObject.getElement());
-    activeObject.getElement().play()
+    console.log(activeObject._element);
+    activeObject._element?.play();
     canvas.current.renderAll();
 
     fabric.util.requestAnimFrame(function render() {
@@ -170,22 +170,32 @@ export const changePattern = (canvas, activeObject, value) => {
 }
 
 export const addResizeFilter = (canvas, activeObject) => {
-    // if (activeObject instanceof fabric.Image) {
-    //     const resizeFilter = new fabric.Image.filters.Resize();
-    //     activeObject.filters.push(resizeFilter);
-    //     activeObject.applyFilters();
-    //     canvas.current.renderAll();
-    // }
-
-    activeObject.resizeFilter = new fabric.Image.filters.Resize();
+    console.log(activeObject instanceof fabric.Image && activeObject?.filters[0]?.type !== "Resize");
+    if (activeObject instanceof fabric.Image && activeObject?.filters[0]?.type !== "Resize") {
+        const resizeFilter = new fabric.Image.filters.Resize();
+        activeObject.filters = [resizeFilter];
+        activeObject.applyFilters();
+        canvas.current.renderAll();
+    }
     canvas.current.renderAll();
 }
 
 
 export const addInvertFilter = (canvas, activeObject) => {
-    if (activeObject instanceof fabric.Image) {
-        const resizeFilter = new fabric.Image.filters.Invert();
-        activeObject.filters.push(resizeFilter);
+    if (activeObject instanceof fabric.Image && activeObject?.filters[0]?.type !== "Invert") {
+        const inverFilter = new fabric.Image.filters.Invert();
+        activeObject.filters = [inverFilter];
+        activeObject.applyFilters();
+        canvas.current.renderAll();
+    }
+}
+
+export const addContrastFilter = (canvas, activeObject) => {
+    if (activeObject instanceof fabric.Image && activeObject?.filters[0]?.type !== "Contrast") {
+        const contrastFilter = new fabric.Image.filters.Contrast({
+            contrast: 0.25
+        });
+        activeObject.filters = [contrastFilter];
         activeObject.applyFilters();
         canvas.current.renderAll();
     }

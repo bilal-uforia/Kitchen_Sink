@@ -2,7 +2,7 @@ import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 import Button from "../Button"
 import {
     sendBackwards, sendToBack, bringForwards, bringToFront, fillGradient, addShadow,
-    fillPattern, addClip, invertClip, playVideo, changePattern, addResizeFilter, addInvertFilter
+    fillPattern, addClip, invertClip, playVideo, changePattern, addResizeFilter, addInvertFilter, addContrastFilter
 } from "../../utils/updateShapes"
 
 
@@ -57,6 +57,9 @@ const ObjectActions = () => {
                 </Button>
                 <Button onClickHandler={() => addInvertFilter(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
                     set Invert filter
+                </Button>
+                <Button onClickHandler={() => addContrastFilter(canvas, activeObject)} attributes={{ disabled: !activeObject }}>
+                    set Contrast filter
                 </Button>
             </div>
 
