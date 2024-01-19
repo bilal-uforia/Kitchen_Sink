@@ -97,7 +97,7 @@ export const fillPattern = (canvas, activeObject) => {
             console.log(img);
             const pattern = new fabric.Pattern({
                 source: img,
-                repeat: 'repeat',
+                repeat: 'no-repeat',
             });
 
             activeObject.set("fill", pattern);
@@ -170,12 +170,15 @@ export const changePattern = (canvas, activeObject, value) => {
 }
 
 export const addResizeFilter = (canvas, activeObject) => {
-    if (activeObject instanceof fabric.Image) {
-        const resizeFilter = new fabric.Image.filters.Resize();
-        activeObject.filters.push(resizeFilter);
-        activeObject.applyFilters();
-        canvas.current.renderAll();
-    }
+    // if (activeObject instanceof fabric.Image) {
+    //     const resizeFilter = new fabric.Image.filters.Resize();
+    //     activeObject.filters.push(resizeFilter);
+    //     activeObject.applyFilters();
+    //     canvas.current.renderAll();
+    // }
+
+    activeObject.resizeFilter = new fabric.Image.filters.Resize();
+    canvas.current.renderAll();
 }
 
 

@@ -1,6 +1,7 @@
 import { fabric } from "fabric";
 import { getRandomPoints } from "./helpers";
 import randomColor from "randomcolor";
+import { ladybug } from "../assets/images";
 
 // Simple  Shapes
 export const addRectangle = (canvas, canvasRef) => {
@@ -106,8 +107,7 @@ export const addPatternRect = (canvas, canvasRef) => {
 
 
     // Adding pattern to rectangle
-    const url = "http://fabricjs.com/assets/ladybug.png";
-    fabric.util.loadImage(url, function (img) {
+    fabric.util.loadImage(ladybug, function (img) {
         console.log(img);
         rect.set("fill", new fabric.Pattern({
             source: img,
