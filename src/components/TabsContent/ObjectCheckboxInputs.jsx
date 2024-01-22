@@ -2,8 +2,8 @@ import { Label } from "./ObjectContent"
 import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 
 const CheckboxInput = ({ labelText, name, onChangeHandler }) => {
-    const { canvas } = useCanvasContext();
-    const activeObject = canvas.current.getActiveObject();
+    const { activeObject } = useCanvasContext();
+
 
     console.log(activeObject?.get(name));
 
@@ -18,11 +18,10 @@ const CheckboxInput = ({ labelText, name, onChangeHandler }) => {
 
 
 const ObjectCheckboxInputs = () => {
-    const { canvas } = useCanvasContext();
+    const { activeObject } = useCanvasContext();
 
 
     const onPropChangeHandler = (e) => {
-        const activeObject = canvas.current.getActiveObject();
         let value = e?.target?.value;
 
         switch (e?.target?.type) {

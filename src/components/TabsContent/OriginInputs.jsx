@@ -2,8 +2,7 @@ import { Label } from "./ObjectContent"
 import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
 
 const OriginInput = ({ labelText, name, value, onChangeHandler }) => {
-    const { canvas } = useCanvasContext();
-    const activeObject = canvas.current.getActiveObject();
+    const {  activeObject } = useCanvasContext();
 
     const defaultChecked = Boolean(activeObject?.get(name) == value);
 
@@ -17,10 +16,10 @@ const OriginInput = ({ labelText, name, value, onChangeHandler }) => {
 
 
 const OriginInputs = () => {
-    const { canvas } = useCanvasContext();
+    const { canvas, activeObject } = useCanvasContext();
 
     const onPropChangeHandler = (e) => {
-        const activeObject = canvas.current.getActiveObject();
+        
         let value = e?.target?.value;
 
         switch (e?.target?.type) {

@@ -3,8 +3,7 @@ import Button from "../Button";
 import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider";
 
 const LockButton = ({ children, property }) => {
-    const { canvas } = useCanvasContext();
-    const activeObject = canvas?.current?.getActiveObject();
+    const { canvas, activeObject } = useCanvasContext();
 
     console.log(activeObject);
 

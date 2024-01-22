@@ -7,8 +7,7 @@ import {
 
 
 const ObjectActions = () => {
-    const { canvas } = useCanvasContext();
-    const activeObject = canvas?.current?.getActiveObject();
+    const { canvas, activeObject } = useCanvasContext();
 
     return (
         <div className="flex flex-col gap-4">

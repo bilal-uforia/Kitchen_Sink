@@ -5,8 +5,7 @@ import Button from "../Button";
 
 
 const TextActionButton = ({ name, title, trueValue, falseValue, customClass }) => {
-    const { canvas } = useCanvasContext();
-    const activeObject = canvas.current.getActiveObject();
+    const { canvas, activeObject } = useCanvasContext();
 
     const [active, setActive] = useState((trueValue || falseValue) ?
         activeObject.get(name) == trueValue :
@@ -32,8 +31,7 @@ const TextActionButton = ({ name, title, trueValue, falseValue, customClass }) =
 
 
 const TextActions = () => {
-    const { canvas } = useCanvasContext();
-    const activeObject = canvas.current.getActiveObject();
+    const { canvas, activeObject } = useCanvasContext();
 
 
     const onChangeHandler = (e) => {
