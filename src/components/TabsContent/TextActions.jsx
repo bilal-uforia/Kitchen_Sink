@@ -52,24 +52,34 @@ const TextActions = () => {
         canvas.current.renderAll();
     }
 
-    //adding subscript that will increase 2 time size and baseline 0.89
+    // adding subscript method
     const addSubscript = () => {
         if (activeObject?.subscript?.size == 0.6) {
-            activeObject.set("subscript", { size: 2, baseline: 0.89 });
+            // activeObject.set("subscript", { size: 2, baseline: 0.89 });
             activeObject.setSubscript(0, 6);
             canvas.current.renderAll();
         }
+
+        // removing subscript 
         else {
             activeObject.set("subscript", { size: 0.6, baseline: 0.11 });
-            activeObject.setSubscript();
+            activeObject.set("styles", {})
             canvas.current.renderAll();
         }
     }
 
     const addSuperscript = () => {
-        activeObject.set("superscript", { size: 2, baseline: 0.89 });
-        activeObject.setSuperscript(0, 6);
-        canvas.current.renderAll();
+        if (activeObject?.superscript?.size == 0.6) {
+            activeObject.set("superscript", { size: 2, baseline: -0.89 });
+            activeObject.setSuperscript(0, 6);
+            canvas.current.renderAll();
+        }
+
+        else {
+            activeObject.set("superscript", { size: 0.6, baseline: 0.11 });
+            activeObject.set("styles", {})
+            canvas.current.renderAll();
+        }
     }
 
     return <div className="flex flex-col gap-2 border-[1px] border-solid border-[#cccccc] rounded px-3 py-4">
@@ -152,7 +162,15 @@ const TextActions = () => {
             <TextActionButton title="Linethrough" name="linethrough" customClass="line-through" />
             <TextActionButton title="Overline" name="overline" customClass="overline" />
             <Button onClickHandler={addSubscript}>Subscript</Button>
+            <Button onClickHandler={addSuperscript}>SuperScript</Button>
+            <div className="flex gap-1 items-center">
+                <Label>GraphemeSplit</Label>
+                <input disabled={!activeObject} type="checkbox" name="graphemeSplit"
+                    defaultChecked={activeObject ? activeObject?.get("graphemeSplit") : false}
+                    onChange={onChangeHandler} />
+            </div>
         </div>
+
 
     </div>
 }

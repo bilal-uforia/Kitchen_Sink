@@ -2,37 +2,6 @@ import { fabric } from "fabric";
 import randomColor from "randomcolor";
 import { ladybug } from "../assets/images";
 
-// export const updateFill = (e, canvas, canvasRef) => {
-//     const activeObject = canvas.current.getActiveObject()
-//     const value = e?.target?.value;
-
-//     activeObject.set("fill", value);
-//     canvas.current.renderAll();
-// }
-
-// export const updateStroke = (e, canvas, canvasRef) => {
-//     const activeObject = canvas.current.getActiveObject()
-//     const value = e?.target?.value;
-
-//     activeObject.set("stroke", value);
-//     canvas.current.renderAll();
-// }
-
-// export const updateBackground = (e, canvas, canvasRef) => {
-//     const activeObject = canvas.current.getActiveObject()
-//     const value = e?.target?.value;
-
-//     activeObject.set("backgroundColor", value);
-//     canvas.current.renderAll();
-// }
-
-// export const updateStrokeWidth = (e, canvas, canvasRef) => {
-//     const activeObject = canvas.current.getActiveObject()
-//     const value = e?.target?.value;
-
-//     activeObject.set("strokeWidth", value);
-//     canvas.current.renderAll();
-// }
 
 export const sendBackwards = (canvas, activeObject) => {
     canvas.current.sendBackwards(activeObject);
