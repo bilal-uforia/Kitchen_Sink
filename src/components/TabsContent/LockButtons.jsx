@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../Button";
 import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider";
 
 const LockButton = ({ children, property }) => {
-    const { canvas, activeObject } = useCanvasContext();
+    const { activeObject } = useCanvasContext();
 
     console.log(activeObject);
 
@@ -14,6 +14,11 @@ const LockButton = ({ children, property }) => {
         activeObject?.set(property, !locked);
         setLocked((prev) => !prev);
     }
+
+    useEffect(() => {
+        setLocked(Boolean(activeObject?.get(property)));
+    }, [activeObject])
+
 
     return (
         <Button onClickHandler={onClickHandler} attributes={{ disabled: !activeObject }}>

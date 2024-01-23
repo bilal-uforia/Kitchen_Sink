@@ -13,7 +13,7 @@ export const Label = ({ children, className }) => {
 const ObjectContent = () => {
     const { canvas, activeObject } = useCanvasContext();
 
-
+    console.log(activeObject?.get("strokeUniform"));
 
     const onPropChangeHandler = (e) => {
         let value = e?.target?.value;
@@ -23,15 +23,20 @@ const ObjectContent = () => {
                 value = Number(e?.target?.value)
                 break;
             case "checkbox":
-                value = e?.target?.checked;
+                value = (e.target.checked);
                 break;
         }
+        console.log(value, !value);
 
         activeObject.set(e?.target?.name, value);
         canvas.current.renderAll();
     }
 
-    console.log(activeObject?.get("opacity"));
+    const checkboxClickHandler = () => {
+
+    }
+
+
 
     return (
         <div className="flex flex-col gap-4">
@@ -61,7 +66,7 @@ const ObjectContent = () => {
                 <div className="flex gap-3">
                     <Label>Opacity:</Label>
                     <input disabled={!activeObject} name="opacity" className="w-[200px]" type="range"
-                        value={activeObject ? "4" : 1}
+                        value={activeObject ? activeObject?.get("opacity") : 1}
                         step={0.1} min="0" max="1" onChange={(e) => onPropChangeHandler(e)} />
                 </div>
 
@@ -75,7 +80,7 @@ const ObjectContent = () => {
                 <div className="flex gap-1">
                     <Label>Stroke Uniform:</Label>
                     <input disabled={!activeObject} type="checkbox" name="strokeUniform"
-                        defaultChecked={activeObject ? activeObject?.get("strokeUniform") : false}
+                        checked={activeObject?.get("strokeUniform")}
                         onChange={onPropChangeHandler} />
                 </div>
 

@@ -7,7 +7,9 @@ const CanvasContextProvider = ({ children }) => {
     const canvasRef = useRef(null);
     const canvas = useRef(null);
     const [activeObject, setActiveObject] = useState(null);
-    
+
+    console.log(activeObject);
+
     return (
         <CanvasContext.Provider value={{ canvasRef, canvas, activeObject, setActiveObject }}>
             {children}
