@@ -5,8 +5,6 @@ import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider";
 const LockButton = ({ children, property }) => {
     const { activeObject } = useCanvasContext();
 
-    console.log(activeObject);
-
     const [locked, setLocked] = useState(Boolean(activeObject?.get(property)));
 
 

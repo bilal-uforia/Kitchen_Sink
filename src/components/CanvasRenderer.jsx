@@ -15,7 +15,8 @@ const CanvasRenderer = () => {
                 selectionColor: 'blue',
                 width: 800,
                 height: 600,
-                preserveObjectStacking: true
+                preserveObjectStacking: true, 
+                backgroundColor:"white"
             })
         )
     };

@@ -2,7 +2,7 @@ import Tabs from "./components/Tabs";
 import CanvasContextProvider from "./ContextProviders/CanvasContextProvider";
 import CanvasRenderer from "./components/CanvasRenderer";
 import VideosRenderer from "./components/VideosRenderer";
-
+import ImagesRendrer from "./components/ImagesRendrer";
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
           <CanvasRenderer />
           <Tabs />
         </div>
+        <ImagesRendrer />
         <VideosRenderer />
       </div>
     </CanvasContextProvider>
