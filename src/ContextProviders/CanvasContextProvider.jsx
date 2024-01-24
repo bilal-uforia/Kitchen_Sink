@@ -5,13 +5,13 @@ const CanvasContext = createContext({});
 
 const CanvasContextProvider = ({ children }) => {
     const canvasRef = useRef(null);
-    const canvas = useRef(null);
+    const [canvas, setCanvas] = useState(null);
     const [activeObject, setActiveObject] = useState(null);
 
     console.log(activeObject);
 
     return (
-        <CanvasContext.Provider value={{ canvasRef, canvas, activeObject, setActiveObject }}>
+        <CanvasContext.Provider value={{ canvasRef, canvas, setCanvas, activeObject, setActiveObject }}>
             {children}
         </CanvasContext.Provider>
     )

@@ -20,7 +20,7 @@ const TextActionButton = ({ name, title, trueValue, falseValue, customClass }) =
             activeObject?.set(name, !active);
         }
         setActive((prev) => !prev);
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
 
     return <Button onClickHandler={onClickHandler} attributes={{ disabled: !activeObject }} customClass={customClass}>
@@ -47,7 +47,7 @@ const TextActions = () => {
         }
 
         activeObject.set(e?.target?.name, value);
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
 
     // adding subscript method
@@ -55,14 +55,14 @@ const TextActions = () => {
         if (activeObject?.subscript?.size == 0.6) {
             // activeObject.set("subscript", { size: 2, baseline: 0.89 });
             activeObject.setSubscript(0, 6);
-            canvas.current.renderAll();
+            canvas.renderAll();
         }
 
         // removing subscript 
         else {
             activeObject.set("subscript", { size: 0.6, baseline: 0.11 });
             activeObject.set("styles", {})
-            canvas.current.renderAll();
+            canvas.renderAll();
         }
     }
 
@@ -70,13 +70,13 @@ const TextActions = () => {
         if (activeObject?.superscript?.size == 0.6) {
             activeObject.set("superscript", { size: 2, baseline: -0.89 });
             activeObject.setSuperscript(0, 6);
-            canvas.current.renderAll();
+            canvas.renderAll();
         }
 
         else {
             activeObject.set("superscript", { size: 0.6, baseline: 0.11 });
             activeObject.set("styles", {})
-            canvas.current.renderAll();
+            canvas.renderAll();
         }
     }
 

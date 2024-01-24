@@ -29,13 +29,8 @@ const ObjectContent = () => {
         console.log(value, !value);
 
         activeObject.set(e?.target?.name, value);
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
-
-    const checkboxClickHandler = () => {
-
-    }
-
 
 
     return (
@@ -58,7 +53,6 @@ const ObjectContent = () => {
                         <input disabled={!activeObject} type="color" name="backgroundColor"
                             value={activeObject ? activeObject?.get("backgroundColor") : "#0000"}
                             onChange={onPropChangeHandler}
-
                         />
                     </div>
                 </div>
@@ -67,14 +61,14 @@ const ObjectContent = () => {
                     <Label>Opacity:</Label>
                     <input disabled={!activeObject} name="opacity" className="w-[200px]" type="range"
                         value={activeObject ? activeObject?.get("opacity") : 1}
-                        step={0.1} min="0" max="1" onChange={(e) => onPropChangeHandler(e)} />
+                        step={0.1} min="0" max="1" onChange={onPropChangeHandler} />
                 </div>
 
                 <div className="flex gap-3">
                     <Label>Stroke Width:</Label>
                     <input disabled={!activeObject} name="strokeWidth" className="w-[200px]" type="range"
                         value={activeObject ? activeObject?.get("strokeWidth") : 1}
-                        step={1} min="0" max="30" onChange={(e) => onPropChangeHandler(e)} />
+                        step={1} min="0" max="30" onChange={onPropChangeHandler} />
                 </div>
 
                 <div className="flex gap-1">

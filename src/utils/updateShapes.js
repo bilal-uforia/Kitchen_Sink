@@ -4,23 +4,23 @@ import { ladybug } from "../assets/images";
 
 
 export const sendBackwards = (canvas, activeObject) => {
-    canvas.current.sendBackwards(activeObject);
-    canvas.current.renderAll();
+    canvas.sendBackwards(activeObject);
+    canvas.renderAll();
 }
 
 export const sendToBack = (canvas, activeObject) => {
-    canvas.current.sendToBack(activeObject);
-    canvas.current.renderAll();
+    canvas.sendToBack(activeObject);
+    canvas.renderAll();
 }
 
 export const bringForwards = (canvas, activeObject) => {
-    canvas.current.bringForward(activeObject);
-    canvas.current.renderAll();
+    canvas.bringForward(activeObject);
+    canvas.renderAll();
 }
 
 export const bringToFront = (canvas, activeObject) => {
-    canvas.current.bringToFront(activeObject);
-    canvas.current.renderAll();
+    canvas.bringToFront(activeObject);
+    canvas.renderAll();
 }
 
 export const fillGradient = (canvas, activeObject) => {
@@ -53,13 +53,13 @@ export const addShadow = (canvas, activeObject) => {
         activeObject.set({ shadow })
     }
     console.log(activeObject)
-    canvas.current.renderAll();
+    canvas.renderAll();
 }
 
 export const fillPattern = (canvas, activeObject) => {
     if (activeObject.fill instanceof fabric.Pattern) {
         activeObject.set({ fill: null })
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
     else {
         fabric.util.loadImage(ladybug, function (img) {
@@ -71,7 +71,7 @@ export const fillPattern = (canvas, activeObject) => {
 
             activeObject.set("fill", pattern);
 
-            canvas.current.renderAll();
+            canvas.renderAll();
         });
     }
 }
@@ -90,7 +90,7 @@ export const addClip = (canvas, activeObject) => {
         activeObject.set({ clipPath: clipCircle })
     }
 
-    canvas.current.renderAll();
+    canvas.renderAll();
 }
 
 export const invertClip = (canvas, activeObject) => {
@@ -108,16 +108,16 @@ export const invertClip = (canvas, activeObject) => {
         activeObject.set({ clipPath: clipCircle })
     }
 
-    canvas.current.renderAll();
+    canvas.renderAll();
 }
 
 export const playVideo = (canvas, activeObject) => {
     console.log(activeObject._element);
     activeObject._element?.play();
-    canvas.current.renderAll();
+    canvas.renderAll();
 
     fabric.util.requestAnimFrame(function render() {
-        canvas.current.renderAll();
+        canvas.renderAll();
         fabric.util.requestAnimFrame(render);
     });
 }
@@ -130,10 +130,10 @@ export const changePattern = (canvas, activeObject, value) => {
                 source: img,
                 repeat: value,
             }));
-            canvas.current.renderAll();
+            canvas.renderAll();
         });
 
-        // canvas.current.renderAll();
+        // canvas.renderAll();
         console.log(activeObject);
     }
 }
@@ -144,9 +144,9 @@ export const addResizeFilter = (canvas, activeObject) => {
         const resizeFilter = new fabric.Image.filters.Resize();
         activeObject.filters = [resizeFilter];
         activeObject.applyFilters();
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
-    canvas.current.renderAll();
+    canvas.renderAll();
 }
 
 
@@ -155,7 +155,7 @@ export const addInvertFilter = (canvas, activeObject) => {
         const inverFilter = new fabric.Image.filters.Invert();
         activeObject.filters = [inverFilter];
         activeObject.applyFilters();
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
 }
 
@@ -166,6 +166,6 @@ export const addContrastFilter = (canvas, activeObject) => {
         });
         activeObject.filters = [contrastFilter];
         activeObject.applyFilters();
-        canvas.current.renderAll();
+        canvas.renderAll();
     }
 }

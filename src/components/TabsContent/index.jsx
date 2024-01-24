@@ -1,5 +1,6 @@
 import SimpleContent from "./SimpleContent";
 import ObjectContent from "./ObjectContent";
+import CanvasContent from "./CanvasContent";
 
 const TabsContent = ({ currentTab }) => {
     let tabContent = <h2>
@@ -14,7 +15,7 @@ const TabsContent = ({ currentTab }) => {
             tabContent = <ObjectContent />;
             break;
         case 2:
-            tabContent = <h2>Canvas Content</h2>;
+            tabContent = <CanvasContent />;
             break;
         case 3:
             tabContent = <h2>Load SVG Content</h2>;

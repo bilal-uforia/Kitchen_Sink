@@ -34,7 +34,7 @@ const ObjectCheckboxInputs = () => {
         }
 
         activeObject.set(e?.target?.name, value);
-        canvas.current.renderAll();
+        canvas.renderAll();
         console.log(activeObject);
     }
 

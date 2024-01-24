@@ -15,7 +15,7 @@ export const addRectangle = (canvas, canvasRef) => {
         width: 100,
         height: 100
     });
-    canvas.current.add(rect);
+    canvas.add(rect);
 }
 
 export const addCircle = (canvas, canvasRef) => {
@@ -27,7 +27,7 @@ export const addCircle = (canvas, canvasRef) => {
         fill: randomColor(),
         radius: 50
     });
-    canvas.current.add(circle);
+    canvas.add(circle);
 }
 
 export const addTriangle = (canvas, canvasRef) => {
@@ -41,7 +41,7 @@ export const addTriangle = (canvas, canvasRef) => {
         height: 100
     });
 
-    canvas.current.add(triangle);
+    canvas.add(triangle);
 }
 
 
@@ -52,7 +52,7 @@ export const addLine = (canvas, canvasRef) => {
         stroke: randomColor()
     });
 
-    canvas.current.add(line);
+    canvas.add(line);
 }
 
 export const addPolygon = (canvas, canvasRef) => {
@@ -67,7 +67,7 @@ export const addPolygon = (canvas, canvasRef) => {
             fill: randomColor()
         });
 
-    canvas.current.add(polygon);
+    canvas.add(polygon);
 }
 
 export const addText = (canvas, canvasRef) => {
@@ -79,7 +79,7 @@ export const addText = (canvas, canvasRef) => {
         editable: true,
         stroke: randomColor()
     });
-    canvas.current.add(text)
+    canvas.add(text)
 }
 
 export const addIText = (canvas, canvasRef) => {
@@ -91,7 +91,7 @@ export const addIText = (canvas, canvasRef) => {
         editable: true,
         stroke: randomColor()
     });
-    canvas.current.add(text)
+    canvas.add(text)
 }
 
 export const addPatternRect = (canvas, canvasRef) => {
@@ -113,10 +113,10 @@ export const addPatternRect = (canvas, canvasRef) => {
             source: img,
             repeat: 'repeat',
         }));
-        canvas.current.renderAll();
+        canvas.renderAll();
     });
 
-    canvas.current.add(rect)
+    canvas.add(rect)
 }
 
 // Image Shapes
@@ -137,7 +137,7 @@ export const addImagePug = (canvas, canvasRef) => {
         img_obj.scaleToWidth(random_width);
         img_obj.scaleToHeight(random_height);
 
-        canvas.current.add(img_obj);
+        canvas.add(img_obj);
 
     }, { crossOrigin: 'anonymous' })
 }
@@ -159,7 +159,7 @@ export const addImageGoogle = (canvas, canvasRef) => {
         img_obj.scaleToWidth(random_width);
         img_obj.scaleToHeight(random_height);
 
-        canvas.current.add(img_obj);
+        canvas.add(img_obj);
 
     }, { crossOrigin: 'anonymous' })
 }
@@ -179,7 +179,7 @@ export const addImagePrintio = (canvas, canvasRef) => {
             scaleY: randomScale
         });
 
-        canvas.current.add(img_obj);
+        canvas.add(img_obj);
 
     }, { crossOrigin: 'anonymous' })
 }
@@ -222,9 +222,9 @@ export const addBunnyVideo = (canvas, canvasRef) => {
 
     // videoObject.getElement().play();
 
-    canvas.current.add(videoObject);
+    canvas.add(videoObject);
     fabric.util.requestAnimFrame(function render() {
-        canvas.current.renderAll();
+        canvas.renderAll();
         fabric.util.requestAnimFrame(render);
     });
 }
@@ -253,7 +253,7 @@ export const addGradient1 = (canvas, canvasRef) => {
     })
 
     ellipse.set("fill", gradient);
-    canvas.current.add(ellipse);
+    canvas.add(ellipse);
 }
 
 
@@ -279,7 +279,7 @@ export const addGradient2 = (canvas, canvasRef) => {
 
     rect.set("fill", gradient);
 
-    canvas.current.add(rect);
+    canvas.add(rect);
 }
 
 export const addGradient3 = (canvas, canvasRef) => {
@@ -304,7 +304,7 @@ export const addGradient3 = (canvas, canvasRef) => {
     })
 
     ellipse.set("fill", gradient);
-    canvas.current.add(ellipse);
+    canvas.add(ellipse);
 }
 
 
@@ -331,7 +331,7 @@ export const addGradient4 = (canvas, canvasRef) => {
 
 
     path.set({ left, top, fill: gradient });
-    canvas.current.add(path);
+    canvas.add(path);
 }
 
 
@@ -347,7 +347,7 @@ export const addArc1 = (canvas, canvasRef) => {
     console.log(path);
 
     path.set({ left, top });
-    canvas.current.add(path);
+    canvas.add(path);
 }
 
 export const addArc2 = (canvas, canvasRef) => {
@@ -367,7 +367,7 @@ export const addArc2 = (canvas, canvasRef) => {
     });
 
 
-    canvas.current.add(path);
+    canvas.add(path);
 }
 
 export const addArc3 = (canvas, canvasRef) => {
@@ -411,8 +411,8 @@ export const addArc3 = (canvas, canvasRef) => {
         angle: 10,
     });
 
-    canvas.current.add(group);
-    // canvas.current.add(path4);
+    canvas.add(group);
+    // canvas.add(path4);
 }
 
 export const addArc4 = (canvas, canvasRef) => {
@@ -503,7 +503,7 @@ export const addArc4 = (canvas, canvasRef) => {
         angle: -10
     });
 
-    canvas.current.add(group);
+    canvas.add(group);
 }
 
 
@@ -532,7 +532,7 @@ export const addArc5 = (canvas, canvasRef) => {
         angle: -10
     });
 
-    canvas.current.add(group);
+    canvas.add(group);
 }
 
 
@@ -556,7 +556,7 @@ export const addSVGShape = (canvas, canvasRef, url = "", objectOptions = {}, wid
             svgObject.scaleToHeight(height);
         }
 
-        canvas.current.add(svgObject);
+        canvas.add(svgObject);
     });
 
     console.log("inside addSVG shape");
