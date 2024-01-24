@@ -9,7 +9,9 @@ const ImagesRendrer = () => {
             </div>
             <div>
                 <p className='text-md mb-[10px] text-[#333333]'>svg canvas:</p>
-                <div id="canvasSvg"></div>
+                <div id="canvasSvg">
+
+                </div>
             </div>
         </div>
     )
