@@ -29,13 +29,13 @@ const RasterizeCanvas = () => {
         <div className="flex gap-2 items-baseline">
             <p className='text-md mb-[10px] text-[#333333]'>Rasterize canvas to</p>
             <div className="flex items-center gap-2">
-                <Button customClass="bg-[#5bb75b] text-[#ffffff] font-semibold" onClickHandler={generateImage}
+                <Button customClass="!bg-[#5bb75b] text-[#ffffff] font-semibold" onClickHandler={generateImage}
                     attributes={{ disabled: !canvas }}>Image</Button>
-                <Button customClass="bg-[#5bb75b] text-[#ffffff] font-semibold" onClickHandler={generateImage}
+                <Button customClass="!bg-[#5bb75b] text-[#ffffff] font-semibold" onClickHandler={generateImage}
                     attributes={{ disabled: !canvas }}>Image 3X multiplied</Button>
-                <Button customClass="bg-[#5bb75b] text-[#ffffff] font-semibold" attributes={{ disabled: !canvas }}
+                <Button customClass="!bg-[#5bb75b] text-[#ffffff] font-semibold" attributes={{ disabled: !canvas }}
                     onClickHandler={generateSvg}>SVG</Button>
-                <Button customClass="bg-[#5bb75b] text-[#ffffff] font-semibold"
+                <Button customClass="!bg-[#5bb75b] text-[#ffffff] font-semibold"
                     attributes={{ disabled: !canvas }}
                     onClickHandler={generateJSON}>JSON</Button>
             </div>
