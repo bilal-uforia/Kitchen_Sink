@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Button from "../Button"
 import RasterizeCanvas from "./RasterizeCanvas"
 import { useCanvasContext } from "../../ContextProviders/CanvasContextProvider"
@@ -5,6 +6,7 @@ import { Label } from "./ObjectContent"
 
 const CanvasContent = () => {
     const { canvas, activeObject } = useCanvasContext();
+    const [drawingMode, setDrawingMode] = useState(false);
 
     const clearCanvas = () => {
         if (confirm("Are you sure?")) {
@@ -46,13 +48,19 @@ const CanvasContent = () => {
 
     // }
 
+    const drawingModeHandler = () => {
+        canvas.set("isDrawingMode", !drawingMode);
+        canvas.renderAll();
+        setDrawingMode((prev) => !prev);
+    }
+
     return (
         <div className="flex flex-col gap-4">
             <p className='text-md text-[#333333]'>Canvas complexity (number of paths): <b>2</b></p>
             <RasterizeCanvas />
             <div className="flex gap-2">
                 <Button bgColor="bg-[#da4f49]" customClass="text-[#ffffff] font-semibold" onClickHandler={clearCanvas}
-                    attributes={{ disabled: !Boolean(canvas?._objects.length > 0) }}>
+                    attributes={{ disabled: !canvas }}>
                     Clear Canvas
                 </Button>
                 <Button onClickHandler={clearSelectedObject} attributes={{ disabled: !activeObject }}>Remove selected object/group</Button>
@@ -97,6 +105,18 @@ const CanvasContent = () => {
                     </div>
                 </>
             }
+            <div className="flex flex-col gap-4">
+                <Button bgColor={`${drawingMode ? "bg-black" : "bg-[#49afcd]"}`} customClass="w-fit text-[#ffffff] font-semibold" onClickHandler={drawingModeHandler}
+                    attributes={{ disabled: !canvas }}>
+                    {
+                        drawingMode ? "Exit free drawing mode" : "Enter free drawing mode"
+                    }
+                </Button>
+                {
+                    drawingMode && <div>Drawing Content</div>
+
+                }
+            </div>
         </div>
     )
 }
