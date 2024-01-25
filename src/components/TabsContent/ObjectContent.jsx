@@ -26,7 +26,6 @@ const ObjectContent = () => {
                 value = (e.target.checked);
                 break;
         }
-        console.log(value, !value);
 
         activeObject.set(e?.target?.name, value);
         canvas.renderAll();
