@@ -12,7 +12,7 @@ function App() {
 
   useEffect(()=>{
     window.addEventListener('message', function(event) {
-      console.log("Event data: ", event.data);
+      console.log("Event data: ", event.data, event.origin);
   console.log("Message received from the parent: " + event.data); // Message received from parent
   });
   const message = "child message";
