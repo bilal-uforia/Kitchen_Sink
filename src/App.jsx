@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Tabs from "./components/Tabs";
 import CanvasContextProvider from "./ContextProviders/CanvasContextProvider";
 import CanvasRenderer from "./components/CanvasRenderer";
@@ -5,7 +6,16 @@ import VideosRenderer from "./components/VideosRenderer";
 import ImagesRendrer from "./components/ImagesRendrer";
 
 
+
+
 function App() {
+
+  useEffect(()=>{
+    window.addEventListener('message', function(event) {
+      console.log("Event data: ", event.data);
+  console.log("Message received from the parent: " + event.data); // Message received from parent
+  });
+  },[])
 
   return (
     <CanvasContextProvider>
