@@ -15,6 +15,8 @@ function App() {
       console.log("Event data: ", event.data);
   console.log("Message received from the parent: " + event.data); // Message received from parent
   });
+  const message = "child message";
+  window.parent.postMessage(message, "*");
   },[])
 
   return (
