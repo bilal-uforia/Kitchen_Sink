@@ -9,10 +9,7 @@ import ImagesRendrer from "./components/ImagesRendrer";
 
 
 function App() {
-  window.addEventListener('message', function(event) {
-    console.log("Event data: ", event.data, event.origin);
-console.log("Message received from the parent: " + event.data); // Message received from parent
-});
+ 
   useEffect(()=>{
   //   window.addEventListener('message', function(event) {
   //     console.log("Event data: ", event.data, event.origin);
