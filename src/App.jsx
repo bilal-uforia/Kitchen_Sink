@@ -11,8 +11,11 @@ import ImagesRendrer from "./components/ImagesRendrer";
 function App() {
  
   useEffect(()=>{
-  const message = "child message";
-  window.parent.postMessage(message, "*");
+  const message = "child message canvas json";
+  window.parent.postMessage({
+    type:"store canvas json", 
+    message
+  }, "*");
   },[])
 
   return (
