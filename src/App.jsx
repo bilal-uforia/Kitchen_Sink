@@ -14,7 +14,7 @@ function App() {
   const message = "child message canvas json";
   window.parent.postMessage({
     type:"store canvas json", 
-    message
+    message:message
   }, "*");
   },[])
 

@@ -7,8 +7,16 @@
     <title>Kitchensink Fabricjs</title>
     <script>
        window.addEventListener('message', function(event) {
-    console.log("Event data: ", event.data, event.origin);
-console.log("Message received from the parent: " + event.data); // Message received from parent
+        if (event.origin !== "https://bilalmalik.bubbleapps.io") {
+        return;
+        }
+        switch(event.data.type){
+          case "user canvas json":
+          console.log("Event data: ", event.data, event.origin);
+          console.log("Message received from the parent: " + event.data.message);        
+          break;
+        }
+
 });
     </script>
   </head>
