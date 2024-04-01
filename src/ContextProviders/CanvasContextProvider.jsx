@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createContext, useRef, useContext, useState } from "react"
 
 // Creating canvas context
@@ -9,6 +10,17 @@ const CanvasContextProvider = ({ children }) => {
     const [activeObject, setActiveObject] = useState(null);
 
     console.log(activeObject);
+
+    useEffect(()=>{
+if(canvas){
+    const consoleOptions = (options)=>console.log("Event Options: ", options);
+    canvas.on("dragenter",consoleOptions);
+    canvas.on("dragover",consoleOptions);
+    canvas.on("dragleave",consoleOptions);
+    canvas.on("drop",consoleOptions);
+    canvas.on("drop:before",consoleOptions);
+}
+    },[canvas])
 
     return (
         <CanvasContext.Provider value={{ canvasRef, canvas, setCanvas, activeObject, setActiveObject }}>
